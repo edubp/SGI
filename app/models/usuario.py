@@ -16,6 +16,7 @@ class Usuario (UserMixin,db.Model):
     ramal = db.Column(db.String(50))
     equipamentos = relationship("Equipamento", back_populates="usuario")
     indice_geral = db.relationship('Indice_Geral', back_populates="usuario")
+    informativo_dimci =  db.relationship('Informativo_Dimci', back_populates="usuario")
 
     def __init(self,email,nome,up_uo,privilegio,senha):
         self.nome = nome

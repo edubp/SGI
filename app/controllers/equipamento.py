@@ -43,7 +43,7 @@ def adicionarEquipamento():
         usuario = Usuario.query.get(id_usuario)
         # data_registro = request.form['data_registro']
 
-        equipamento = Equipamento(equipamento = equi, codigo=codigo,certificado = certificado,fabricante=fabricante,modelo=modelo,serie=serie,periodicidade=periodicidade,descricao=descricao,data_ultima_calibracao=data_ultima_calibracao,data_proxima_calibracao=data_proxima_calibracao,data_registro=data_registro,usuario=usuario)
+        equipamento = Equipamento(equipamento = equi, codigo=codigo,certificado = certificado,fabricante=fabricante,modelo=modelo,serie=serie,periodicidade=periodicidade,descricao=descricao,data_ultima_calibracao=data_ultima_calibracao,data_proxima_calibracao=data_proxima_calibracao,data_registro=data_registro,usuario_id=id_usuario)
         db.session.add(equipamento)
         db.session.commit()
         return redirect(url_for('equip.equipamentos'))
@@ -118,7 +118,7 @@ def verivicar_validade():
 @equip.route('/baixar_Lista_Equipamentos/<file>')
 def baixarArquivo(file):
 
-    path = os.path.join(os.getcwd(), 'app\static\Excel\Lista_Mestre')
+    path = os.path.join(os.getcwd(), 'SGI_v0/app/static/Excel/Lista_Mestre')
 
     arquivo = os.path.join(path, file)
 
@@ -141,7 +141,7 @@ def download_Equipamentos():
     #basedir = os.path.abspath(os.path.dirname(__file__))
     #print(basedir)
 
-    path = os.path.join(os.getcwd(), 'app\static\Excel\Lista_Mestre')
+    path = os.path.join(os.getcwd(), 'SGI_v0/app/static/Excel/Lista_Mestre')
 
     #arquivo = 'app\static\Excel\lista_mestre{}.xlsx'.format(date)
     arquivo = os.path.join(path,'lista_mestre{}.xlsx'.format(date))

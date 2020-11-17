@@ -89,7 +89,7 @@ def deletar(id):
 @indice.route('/baixar_Lista_Indice_Geral/<file>')
 def baixarArquivo(file):
 
-    path = os.path.join(os.getcwd(), 'app\static\Excel\Indice_Geral')
+    path = os.path.join(os.getcwd(), 'SGI_v0/app/static/Excel/Indice_Geral')
 
     arquivo = os.path.join(path, file)
 
@@ -112,7 +112,7 @@ def download_Indice_Geral():
     #basedir = os.path.abspath(os.path.dirname(__file__))
     #print(basedir)
 
-    path = os.path.join(os.getcwd(), 'app\static\Excel\Indice_Geral')
+    path = os.path.join(os.getcwd(), 'SGI_v0/app/static/Excel/Indice_Geral')
 
     #arquivo = 'app\static\Excel\lista_mestre{}.xlsx'.format(date)
     arquivo = os.path.join(path,'indice_geral{}.xlsx'.format(date))

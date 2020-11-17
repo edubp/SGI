@@ -159,7 +159,7 @@ def processarCalendario(mes,ano,laboratorio):
 @agendamento.route('/baixar_Agendamentos/<file>')
 def baixarArquivo(file):
 
-    path = os.path.join(os.getcwd(), 'app\static\Excel\Agendamentos')
+    path = os.path.join(os.getcwd(), 'SGI_v0/app/static/Excel/Agendamentos')
 
     arquivo = os.path.join(path, file)
 
@@ -182,7 +182,7 @@ def download_Agendamentos():
     #basedir = os.path.abspath(os.path.dirname(__file__))
     #print(basedir)
 
-    path = os.path.join(os.getcwd(), 'app\static\Excel\Agendamentos')
+    path = os.path.join(os.getcwd(), 'SGI_v0/app/static/Excel/Agendamentos')
 
     #arquivo = 'app\static\Excel\lista_mestre{}.xlsx'.format(date)
     arquivo = os.path.join(path,'agendamentos{}.xlsx'.format(date))

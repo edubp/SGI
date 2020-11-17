@@ -3,12 +3,16 @@
 {% block content %}
 
 <div id="team-area">
+
+        <div class="col-12">
+              <h3 align="center" class="main-title">Colaboradores</h3>
+        </div>
+
         <div class="container">
+
           <div class="row">
-            <div class="col-12">
-              <h3 class="main-title">Colaboradores</h3>
-            </div>
-            <div class="col-md-2">
+
+            <div class="col-md-3">
               <div class="card">
                 <img src="{{ url_for('static', filename='img/zemar.jfif')}}" class="card-img-top" alt="zemar">
                 <div class="card-body">
@@ -17,11 +21,11 @@
                     <p class="card-text">Pesquisador</p>
                     <p class="card-text"> <a href="mailto:zmsoares@inmetro.gov.br" target="_blank">Email: zmsoares</a></p>
                     <p class="card-text">Ramal: 9999</p>
-
                 </div>
               </div>
             </div>
-            <div class="col-md-2">
+
+            <div class="col-md-3">
               <div class="card">
                 <img src="{{ url_for('static', filename='img/nelson.jfif')}}" class="card-img-top" alt="Nelson">
                 <div class="card-body">
@@ -33,7 +37,8 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-2">
+
+            <div class="col-md-3">
               <div class="card">
                 <img src="{{ url_for('static', filename='img/thiago.jfif')}}" class="card-img-top" width="100" alt="Imagem de Perfil 3">
                 <div class="card-body">
@@ -44,7 +49,28 @@
                 </div>
               </div>
             </div>
-              <div class="col-md-2">
+
+            <div class="col-md-3">
+              <div class="card">
+                <img src="{{ url_for('static', filename='img/mauro.jfif')}}" class="card-img-top" alt="Eduardo">
+                <div class="card-body">
+                  <h5 class="card-title">Mauro</h5>
+                    <p class="card-text">Pesquisador</p>
+                    <p class="card-text"> <a href="mailto:mspaes@inmetro.gov.br" target="_blank">Email: mspaes</a></p>
+                    <p class="card-text">Ramal: 9999</p>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+        <div class="container">
+
+          <div class="row">
+
+            <div class="col-md-3">
               <div class="card">
                 <img src="{{ url_for('static', filename='img/eduardo.jfif')}}" class="card-img-top" alt="Eduardo">
                 <div class="card-body">
@@ -52,13 +78,13 @@
                     <p class="card-text">Técnico</p>
                     <p class="card-text"> <a href="mailto:ebpinto@inmetro.gov.br" target="_blank">Email: ebpinto</a></p>
                     <p class="card-text">Ramal: 9999</p>
-
                 </div>
               </div>
             </div>
-            <div class="col-md-2">
+
+            <div class="col-md-3">
               <div class="card">
-                <img src="{{ url_for('static', filename='img/salatiel.jpg')}}" width="96" height="155" class="card-img-top" alt="Salatiel">
+                <img  src="{{ url_for('static', filename='img/salatiel.jpg')}}" width="96" height="250" class="card-img-top" alt="Salatiel">
                 <div class="card-body">
                   <h5 class="card-title">Salatiel</h5>
                     <p class="card-text">Técnico</p>
@@ -67,9 +93,10 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-2">
+
+            <div class="col-md-3">
               <div class="card">
-                <img src="{{ url_for('static', filename='img/isabela.jfif')}}" class="card-img-top" alt="Imagem de Perfil 3">
+                <img  src="{{ url_for('static', filename='img/isabela.jfif')}}" class="card-img-top" alt="Imagem de Perfil 3">
                 <div class="card-body">
                   <h5 class="card-title">Isabela</h5>
                     <p class="card-text">Bolsista - Nível Superior</p>
@@ -78,11 +105,13 @@
                 </div>
               </div>
             </div>
-            </div>
-
-
+           </div>
 
         </div>
-      </div>
+
+
+
+
+</div>
 
 {% endblock %}

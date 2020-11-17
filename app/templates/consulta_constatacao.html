@@ -1,0 +1,36 @@
+{% extends "base_dimci.html" %}
+{% block title %} {{super()}} - Dimci - Consulta Constatação {% endblock %}
+{% block content %}
+
+<div class="container">
+    <h3 align="center">Consultar Constatação</h3>
+<form action="/consultarConstatacao" method="post">
+    <div class="form-group row">
+        <label for="planilha" class="col-sm-2 col-form-label">Planilha</label>
+         <div class="col-sm-4">
+        <select name = 'planilha'  class="custom-select mr-sm-2" id="planilha" required>
+        <option selected>Selecionar Planilha</option>
+        {% for p in planilhas %}
+        <option value='{{p}}'>{{p}}</option>
+        {% endfor %}
+         </select>
+        </div>
+    </div>
+ <div class="form-group row">
+        <label for="nconstatacao" class="col-sm-2 col-form-label">N° da Constatação:</label>
+        <div class="col-sm-4">
+            <input type="text" name = 'nconstatacao' class="form-control" id="nconstatacao" placeholder="N° da Constatação" required>
+        </div>
+     <button type="submit" class="btn btn-dark">Consultar</button>
+    </div>
+ </form>
+</div>
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div class="">
+      {{ messages[0] }} !!!
+    </div>
+    {% endif %}
+    {% endwith %}
+
+{% endblock %}

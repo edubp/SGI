@@ -32,7 +32,7 @@ def registro():
     lista_up_uo = []
     for i in UP_UO:
         lista_up_uo.append(str(i)[6:])
-    return render_template('Registro.html', lista = lista_up_uo)
+    return render_template('registro.html', lista = lista_up_uo)
 
 @auth.route('/registro', methods=['POST'])
 def registro_post():

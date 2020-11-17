@@ -1,0 +1,229 @@
+{% extends "base_dimci.html" %}
+{% block title %} {{super()}} - Dimci - Registro Constatação {% endblock %}
+{% block content %}
+
+<div class="container">
+    <h3 align="center">Registrar Constatação</h3>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div class="">
+     <h3> {{ messages[0] }} !!! </h3>
+    </div>
+    {% endif %}
+    {% endwith %}
+<form action="/registrarConstatacao" method="post">
+    <fieldset class="form-group">
+    <div class="row">
+      <legend class="col-form-label col-sm-2 pt-0">Origem:</legend>
+      <div class="col-sm-3">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="origem" id="gridRadios1" value="Auditoria Interna" checked>
+          <label class="form-check-label" for="gridRadios1">
+            Auditoria Interna
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="origem" id="gridRadios2" value="Reclamação">
+          <label class="form-check-label" for="gridRadios2">
+           Reclamação
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="origem" id="gridRadios3" value="Pesquisa de Satisfação" >
+          <label class="form-check-label" for="gridRadios3">
+            Pesquisa de Satisfação
+          </label>
+        </div>
+      </div>
+        <div class="col-sm-3">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="origem" id="gridRadios4" value="Peer Review" >
+          <label class="form-check-label" for="gridRadios1">
+            Peer Review
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="origem" id="gridRadios5" value="NC Eventual">
+          <label class="form-check-label" for="gridRadios2">
+           NC Eventual
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="origem" id="gridRadios66" value="Outros" >
+          <label class="form-check-label" for="gridRadios3">
+            Outros
+          </label>
+        </div>
+      </div>
+    </div>
+    </fieldset>
+
+    <div class="form-row" id = "constatacao">
+      <div class="col-sm-2">
+        <label for="constatacao">Constatação:</label>
+      </div>
+        <div class="col-sm-2">
+            <input type="text" class="form-control" name = 'nconstatacao'id="nconstatacao" placeholder="N° da Constatacao" required>
+        </div>
+        <div align="center" class="col-sm-3">
+            <div class="form-check form-check-inline ">
+                <input class="form-check-input" type="radio" name="tipo" id="inlineRadio1" value="NC" checked>
+                <label class="form-check-label" for="inlineRadio1">NC</label>
+            </div>
+            <div class="form-check form-check-inline ">
+                <input class="form-check-input" type="radio" name="tipo" id="inlineRadio2" value="NCP">
+                <label class="form-check-label" for="inlineRadio2">NCP</label>
+            </div>
+            <div class="form-check form-check-inline ">
+                <input class="form-check-input" type="radio" name="tipo" id="inlineRadio3" value="OBS" >
+                <label class="form-check-label" for="inlineRadio3">OBS</label>
+            </div>
+        </div>
+        <div class="form-group col-md-2">
+            <select id="inputUO" name = 'inputUO' class="form-control">
+                 <option selected>DIMCI</option>
+                 <option>DIAVI</option>
+                 <option>DIMEC</option>
+                 <option>DIELE</option>
+                 <option>DIOPT</option>
+                 <option>DIQUIM</option>
+
+            </select>
+        </div>
+        <div class="col-sm-3">
+            <input type="date" format="dd/mm/yyyy" name = 'data_const' class="form-control" id="data_const" required>
+        </div>
+
+    </div>
+
+    <div class="form-group row">
+    <label for="grandeza" class="col-sm-2 col-form-label">Grandeza</label>
+    <div class="col-sm-4">
+      <select name = 'grandeza'  class="custom-select mr-sm-2" id="grandeza" required>
+         <option value='n.a.' selected>n.a.</option>
+        <option value='Acoustic'>Acoustic</option>
+      </select>
+    </div>
+    </div>
+    <div class="form-group row">
+    <label for="laboratorio" class="col-sm-2 col-form-label">Laboratório</label>
+    <div class="col-sm-4">
+      <select name = 'laboratorio'  class="custom-select mr-sm-2" id="laboratorio" required>
+        <option value='n.a.' selected>n.a.</option>
+        <option value='Laeta'>Laeta</option>
+      </select>
+    </div>
+        <div class="col-sm-4">
+            <input type="text" name = 'responsavel' class="form-control" id="responsavel" placeholder="Responsável" required>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="documento_origem" class="col-sm-2 col-form-label">Identificação:</label>
+        <div class="col-sm-4">
+            <input type="text" name = 'documento_origem' class="form-control" id="documento_origem" placeholder="Documento de origem" required>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="descricao_da_const" class="col-sm-2 col-form-label">Descrição:</label>
+        <div class="col-sm-10">
+            <textarea class="form-control" name="descricao_da_const" id="descricao_da_const" rows="3">Descrição da Constatação ...</textarea>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="item_do_enquadramento" class="col-sm-2 col-form-label">Item:</label>
+        <div class="col-sm-4">
+            <input type="text" name = 'item_do_enquadramento' class="form-control" id="item_do_enquadramento" placeholder="Item do enquadramento" required>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="correcao_da_const" class="col-sm-2 col-form-label">Correção Proposta:</label>
+        <div class="col-sm-10">
+            <textarea class="form-control" name="correcao_da_const" id="correcao_da_const" rows="3">Descrição da Correção proposta da constatação ...</textarea>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="causa_raiz_da_const" class="col-sm-2 col-form-label">Causa Raiz:</label>
+        <div class="col-sm-10">
+            <textarea class="form-control" name="causa_raiz_da_const" id="causa_raiz_da_const" rows="3">Descrição da Causa Raiz da constatação ...</textarea>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="acao_corretiva_da_const" class="col-sm-2 col-form-label">Ação Corretica:</label>
+        <div class="col-sm-10">
+            <textarea class="form-control" name="acao_corretiva_da_const" id="acao_corretiva_da_const" rows="3">Descrição da Ação Corretiva da constatação ...</textarea>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="prazo_para_implementacao" class="col-sm-2 col-form-label">Prazo para Implementação:</label>
+        <div class="col-sm-4">
+            <input type="date" format="dd/mm/yyyy" name = 'prazo_para_implementacao' class="form-control" id="prazo_para_implementacao" required>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="comentario" class="col-sm-2 col-form-label">Comentários:</label>
+        <div class="col-sm-10">
+            <textarea class="form-control" name="comentario" id="comentario" rows="3">Comentários sobre a implementação ...</textarea>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Implementado:</label>
+        <div class="col-sm-3">
+        <div class="form-check form-check-inline ">
+                <input class="form-check-input" type="radio" name="implementado" id="inlineRadio4" value="Implementado" checked>
+                <label class="form-check-label" for="inlineRadio1">Implementado</label>
+        </div>
+        <div class="form-check form-check-inline ">
+                <input class="form-check-input" type="radio" name="implementado" id="inlineRadio5" value="Não Implementado">
+                <label class="form-check-label" for="inlineRadio2">Não implementado</label>
+        </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="data_da_implementacao" class="col-sm-2 col-form-label">Data da Implementação:</label>
+       <div class="col-sm-4">
+            <input type="date" format="dd/mm/yyyy" name = 'data_da_implementacao' class="form-control" id="data_da_implementacao" required>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="repactuacao1" class="col-sm-2 col-form-label">Repactuação I:</label>
+        <div class="col-sm-10">
+            <textarea class="form-control" name="repactuacao1" id="repactuacao1" rows="3">Comentários sobre a Repactuação I ...</textarea>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="repactuacao2" class="col-sm-2 col-form-label">Repactuação II:</label>
+        <div class="col-sm-10">
+            <textarea class="form-control" name="repactuacao2" id="repactuacao2" rows="3">Comentários sobre a Repactuação II ...</textarea>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="repactuacao3" class="col-sm-2 col-form-label">Repactuação III:</label>
+        <div class="col-sm-10">
+            <textarea class="form-control" name="repactuacao3" id="repactuacao3" rows="3">Comentários sobre a Repactuação III ...</textarea>
+        </div>
+    </div>
+
+    <div class="form-group row">
+    <label for="planilha" class="col-sm-2 col-form-label">Planilha</label>
+    <div class="col-sm-4">
+      <select name = 'planilha'  class="custom-select mr-sm-2" id="planilha" required>
+        <option selected>Selecionar Planilha</option>
+        {% for p in planilhas %}
+        <option value='{{p}}'>{{p}}</option>
+        {% endfor %}
+      </select>
+    </div>
+    </div>
+
+    <div class="form-group row d-flex justify-content-center">
+        <button type="submit" name="action" value="registrar" class="btn btn-dark">Registrar Constatação</button>
+    </div>
+</form>
+</div>
+
+{% endblock %}

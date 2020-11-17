@@ -66,7 +66,7 @@ def deletar(id):
 @cliente.route('/baixar_Lista_Clientes/<file>')
 def baixarArquivo(file):
 
-    path = os.path.join(os.getcwd(), 'app\static\Excel\Clientes')
+    path = os.path.join(os.getcwd(), 'SGI_v0/app/static/Excel/Clientes')
 
     arquivo = os.path.join(path, file)
 
@@ -89,7 +89,7 @@ def download_Clientes():
     #basedir = os.path.abspath(os.path.dirname(__file__))
     #print(basedir)
 
-    path = os.path.join(os.getcwd(), 'app\static\Excel\Clientes')
+    path = os.path.join(os.getcwd(), 'SGI_v0/app/static/Excel/Clientes')
 
     #arquivo = 'app\static\Excel\lista_mestre{}.xlsx'.format(date)
     arquivo = os.path.join(path,'clientes{}.xlsx'.format(date))

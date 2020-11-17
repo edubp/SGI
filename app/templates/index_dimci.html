@@ -1,0 +1,12 @@
+{% extends "base_dimci.html" %}
+{% block title %} {{super()}} - Dimci - Index {% endblock %}
+{% block content %}
+
+<h6>Bem Vindo ao Sistema da Qualidade da Dimci, {{ name }}!</h6>
+
+  <div class="text-center">
+    <img src="{{ url_for('static', filename='img/inmetro1.jpg') }}" class="rounded" alt="...">
+  </div>
+
+
+{% endblock %}
